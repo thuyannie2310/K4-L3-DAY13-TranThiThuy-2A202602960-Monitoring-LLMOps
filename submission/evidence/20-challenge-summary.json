@@ -1,0 +1,257 @@
+[
+  {
+    "latency": {
+      "P50": 156.0,
+      "P95": 158.6,
+      "P99": 158.92,
+      "TTFT P95": 55.0
+    },
+    "traffic": {
+      "2026-09-29T09:33": 5
+    },
+    "errors": {
+      "Error %": 0.0,
+      "Retrieval success %": 100.0
+    },
+    "cost": {
+      "2026-09-29T09:33": 0.010499999999999999,
+      "Total": 0.010499999999999999
+    },
+    "tokens": {
+      "Input": 175,
+      "Output": 665
+    },
+    "quality": {
+      "Mean": 0.8400000000000001
+    },
+    "error_types": {},
+    "requests": 5,
+    "phase": "baseline",
+    "start": "2026-09-29T09:33:31.986802+00:00",
+    "end": "2026-09-29T09:33:32.238654+00:00",
+    "over_challenge_threshold": 0,
+    "sample_log": {
+      "service": "api",
+      "latency_ms": 159,
+      "ttft_ms": 55,
+      "tokens_in": 35,
+      "tokens_out": 169,
+      "cost_usd": 0.00264,
+      "quality_score": 0.8,
+      "tool_name": "retrieval",
+      "tool_success": true,
+      "payload": {
+        "answer_preview": "Starter answer. You should improve this output logic and add better quality chec..."
+      },
+      "event": "response_sent",
+      "user_id_hash": "dde2e75b20cf",
+      "feature": "monitoring",
+      "session_id": "k4-l3a-challenge-s01",
+      "correlation_id": "req-588467b9",
+      "env": "dev",
+      "model": "claude-sonnet-4-5",
+      "level": "info",
+      "ts": "2026-09-29T09:33:32.223603Z"
+    },
+    "trace_id": "f62c90abe01bdd425d4ca0ef09486279",
+    "spans": [
+      {
+        "id": "9df2600ef94e656a",
+        "name": "llm-generation",
+        "parent": "20b6ac851e091a4c",
+        "start": "2026-09-29T09:33:32.064000Z",
+        "end": "2026-09-29T09:33:32.223000Z",
+        "latency_seconds": 0.159,
+        "level": "DEFAULT"
+      },
+      {
+        "id": "ca64b37a617d7db5",
+        "name": "retrieval",
+        "parent": "20b6ac851e091a4c",
+        "start": "2026-09-29T09:33:32.063000Z",
+        "end": "2026-09-29T09:33:32.063000Z",
+        "latency_seconds": 0.0,
+        "level": "DEFAULT"
+      },
+      {
+        "id": "20b6ac851e091a4c",
+        "name": "lab-agent-run",
+        "parent": null,
+        "start": "2026-09-29T09:33:32.062000Z",
+        "end": "2026-09-29T09:33:32.223000Z",
+        "latency_seconds": 0.161,
+        "level": "DEFAULT"
+      }
+    ]
+  },
+  {
+    "latency": {
+      "P50": 2662.0,
+      "P95": 2662.8,
+      "P99": 2662.96,
+      "TTFT P95": 53.6
+    },
+    "traffic": {
+      "2026-09-29T09:33": 5
+    },
+    "errors": {
+      "Error %": 0.0,
+      "Retrieval success %": 100.0
+    },
+    "cost": {
+      "2026-09-29T09:33": 0.010350000000000002,
+      "Total": 0.010350000000000002
+    },
+    "tokens": {
+      "Input": 175,
+      "Output": 655
+    },
+    "quality": {
+      "Mean": 0.8400000000000001
+    },
+    "error_types": {},
+    "requests": 5,
+    "phase": "incident",
+    "start": "2026-09-29T09:33:32.338156+00:00",
+    "end": "2026-09-29T09:33:35.110527+00:00",
+    "over_challenge_threshold": 5,
+    "sample_log": {
+      "service": "api",
+      "latency_ms": 2663,
+      "ttft_ms": 52,
+      "tokens_in": 35,
+      "tokens_out": 117,
+      "cost_usd": 0.00186,
+      "quality_score": 0.8,
+      "tool_name": "retrieval",
+      "tool_success": true,
+      "payload": {
+        "answer_preview": "Starter answer. You should improve this output logic and add better quality chec..."
+      },
+      "event": "response_sent",
+      "user_id_hash": "ed72e61117f6",
+      "feature": "monitoring",
+      "session_id": "k4-l3a-challenge-s05",
+      "correlation_id": "req-2a4c3677",
+      "env": "dev",
+      "model": "claude-sonnet-4-5",
+      "level": "info",
+      "ts": "2026-09-29T09:33:35.080273Z"
+    },
+    "trace_id": "25307841dfaf9c40be34c13eaa3af02a",
+    "spans": [
+      {
+        "id": "6df1d2b0f88f05bf",
+        "name": "llm-generation",
+        "parent": "aae55e423b006240",
+        "start": "2026-09-29T09:33:34.922000Z",
+        "end": "2026-09-29T09:33:35.080000Z",
+        "latency_seconds": 0.158,
+        "level": "DEFAULT"
+      },
+      {
+        "id": "c39e33d81a6f5cf8",
+        "name": "retrieval",
+        "parent": "aae55e423b006240",
+        "start": "2026-09-29T09:33:32.417000Z",
+        "end": "2026-09-29T09:33:34.922000Z",
+        "latency_seconds": 2.505,
+        "level": "DEFAULT"
+      },
+      {
+        "id": "aae55e423b006240",
+        "name": "lab-agent-run",
+        "parent": null,
+        "start": "2026-09-29T09:33:32.417000Z",
+        "end": "2026-09-29T09:33:35.080000Z",
+        "latency_seconds": 2.663,
+        "level": "DEFAULT"
+      }
+    ]
+  },
+  {
+    "latency": {
+      "P50": 156.0,
+      "P95": 156.8,
+      "P99": 156.96,
+      "TTFT P95": 51.8
+    },
+    "traffic": {
+      "2026-09-29T09:33": 5
+    },
+    "errors": {
+      "Error %": 0.0,
+      "Retrieval success %": 100.0
+    },
+    "cost": {
+      "2026-09-29T09:33": 0.00996,
+      "Total": 0.00996
+    },
+    "tokens": {
+      "Input": 175,
+      "Output": 629
+    },
+    "quality": {
+      "Mean": 0.8400000000000001
+    },
+    "error_types": {},
+    "requests": 5,
+    "phase": "recovery",
+    "start": "2026-09-29T09:33:35.192308+00:00",
+    "end": "2026-09-29T09:33:35.427792+00:00",
+    "over_challenge_threshold": 0,
+    "sample_log": {
+      "service": "api",
+      "latency_ms": 157,
+      "ttft_ms": 52,
+      "tokens_in": 36,
+      "tokens_out": 156,
+      "cost_usd": 0.002448,
+      "quality_score": 0.9,
+      "tool_name": "retrieval",
+      "tool_success": true,
+      "payload": {
+        "answer_preview": "Starter answer. You should improve this output logic and add better quality chec..."
+      },
+      "event": "response_sent",
+      "user_id_hash": "4570299f37e2",
+      "feature": "monitoring",
+      "session_id": "k4-l3a-challenge-s04",
+      "correlation_id": "req-90fc38a3",
+      "env": "dev",
+      "model": "claude-sonnet-4-5",
+      "level": "info",
+      "ts": "2026-09-29T09:33:35.411751Z"
+    },
+    "trace_id": "470df34682e724c3416a6cd16cf375df",
+    "spans": [
+      {
+        "id": "8a434355cfe81f1b",
+        "name": "retrieval",
+        "parent": "8566647d2cb82251",
+        "start": "2026-09-29T09:33:35.254000Z",
+        "end": "2026-09-29T09:33:35.254000Z",
+        "latency_seconds": 0.0,
+        "level": "DEFAULT"
+      },
+      {
+        "id": "8566647d2cb82251",
+        "name": "lab-agent-run",
+        "parent": null,
+        "start": "2026-09-29T09:33:35.254000Z",
+        "end": "2026-09-29T09:33:35.411000Z",
+        "latency_seconds": 0.157,
+        "level": "DEFAULT"
+      },
+      {
+        "id": "6db3a8267f929552",
+        "name": "llm-generation",
+        "parent": "8566647d2cb82251",
+        "start": "2026-09-29T09:33:35.254000Z",
+        "end": "2026-09-29T09:33:35.411000Z",
+        "latency_seconds": 0.157,
+        "level": "DEFAULT"
+      }
+    ]
+  }
+]

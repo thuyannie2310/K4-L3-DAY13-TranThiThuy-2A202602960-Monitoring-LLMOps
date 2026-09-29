@@ -13,4 +13,4 @@ Xem bảng evidence và diễn giải tại [REPORT.md](../REPORT.md).
 - 17-langfuse-validation.txt: kết quả lần kết nối Langfuse trước đó (27 tests tại thời điểm đó).
 - 18-evidence-audit.txt: kiểm tra evidence/secret/link mới nhất.
 
-Chưa có incident challenge chính thức. Không dùng practice thay thế challenge và không commit config/challenge.json.
+Challenge chính thức đã hoàn thành: 19-* chứa log/output ba pha; 20-* chứa metrics và cloud observations; 21/22/23 là ảnh metric/log/trace. File challenge.json vẫn riêng tư và Git ignore.

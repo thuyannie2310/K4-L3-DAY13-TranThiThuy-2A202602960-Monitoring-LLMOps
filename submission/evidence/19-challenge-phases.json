@@ -1,0 +1,50 @@
+[
+  {
+    "phase": "baseline",
+    "start": "2026-09-29T09:33:31.986802+00:00",
+    "end": "2026-09-29T09:33:32.238654+00:00",
+    "control": "All incidents disabled, confirmed by /health",
+    "workload": "Challenge: day13-k4-l3a-monitoring-llmops-v1 | Cohort: K4\n[200] req-588467b9 | monitoring | 168.1ms\n[200] req-e3d80f04 | monitoring | 168.0ms\n[200] req-ddde2fa1 | monitoring | 167.7ms\n[200] req-f00a2a69 | monitoring | 169.4ms\n[200] req-900f83cb | monitoring | 168.9ms\n",
+    "health": {
+      "ok": true,
+      "tracing_enabled": true,
+      "incidents": {
+        "rag_slow": false,
+        "tool_fail": false,
+        "cost_spike": false
+      }
+    }
+  },
+  {
+    "phase": "incident",
+    "start": "2026-09-29T09:33:32.338156+00:00",
+    "end": "2026-09-29T09:33:35.110527+00:00",
+    "control": "200 {'ok': True, 'incidents': {'rag_slow': True, 'tool_fail': False, 'cost_spike': False}}\n",
+    "workload": "Challenge: day13-k4-l3a-monitoring-llmops-v1 | Cohort: K4\n[200] req-5f6d8838 | monitoring | 2664.1ms\n[200] req-2a4c3677 | monitoring | 2669.4ms\n[200] req-85e4f899 | monitoring | 2669.9ms\n[200] req-aea91b1b | monitoring | 2670.6ms\n[200] req-ded9b78e | monitoring | 2669.0ms\n",
+    "health": {
+      "ok": true,
+      "tracing_enabled": true,
+      "incidents": {
+        "rag_slow": true,
+        "tool_fail": false,
+        "cost_spike": false
+      }
+    }
+  },
+  {
+    "phase": "recovery",
+    "start": "2026-09-29T09:33:35.192308+00:00",
+    "end": "2026-09-29T09:33:35.427792+00:00",
+    "control": "200 {'ok': True, 'incidents': {'rag_slow': False, 'tool_fail': False, 'cost_spike': False}}\n",
+    "workload": "Challenge: day13-k4-l3a-monitoring-llmops-v1 | Cohort: K4\n[200] req-0b0ac59e | monitoring | 157.5ms\n[200] req-98bd379b | monitoring | 162.5ms\n[200] req-90fc38a3 | monitoring | 164.0ms\n[200] req-7402bd46 | monitoring | 163.5ms\n[200] req-6f108446 | monitoring | 163.9ms\n",
+    "health": {
+      "ok": true,
+      "tracing_enabled": true,
+      "incidents": {
+        "rag_slow": false,
+        "tool_fail": false,
+        "cost_spike": false
+      }
+    }
+  }
+]

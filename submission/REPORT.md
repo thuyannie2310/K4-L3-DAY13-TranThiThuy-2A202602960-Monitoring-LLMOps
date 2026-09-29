@@ -1,7 +1,7 @@
 # Báo cáo kỹ thuật — Day 13 Monitoring & LLMOps
 
 > Báo cáo cá nhân được hỗ trợ bởi AI, dựa trên source và kết quả chạy thực tế.
-> Đã hoàn thiện phần không phụ thuộc challenge; CP3 chờ file chính thức của giảng viên.
+> Đã hoàn thành CP3 bằng file challenge chính thức; chưa nộp VLearn theo yêu cầu học viên.
 > Phần tự đánh giá là bản tổng hợp để học viên rà lại và sử dụng khi giải thích bài.
 
 ## 1. Thông tin
@@ -9,9 +9,9 @@
 - Họ tên: Trần Thị Thủy.
 - MSSV: 2A202602960; lớp theo đề: K4-L3A.
 - Repository: https://github.com/thuyannie2310/K4-L3-DAY13-TranThiThuy-2A202602960-Monitoring-LLMOps
-- Commit nộp: dùng SHA của commit chứa báo cáo này trên GitHub (lấy bằng `git rev-parse HEAD`); link bài nộp trỏ tới chính commit. Đây là bản trước challenge, sẽ cập nhật khi có file giảng viên.
+- Commit nộp: dùng SHA của commit chứa báo cáo này trên GitHub (lấy bằng `git rev-parse HEAD`); link bài nộp trỏ tới chính commit. Commit đã push trước challenge: `57f5d47eacdf37b5fc06f8c555ed8de28177f523`; bản challenge nằm trong commit chứa báo cáo này (lấy SHA bằng `git rev-parse HEAD`); chưa nộp LMS.
 - Project đã kết nối: [day13-k4-l3a-2A202602960](https://cloud.langfuse.com/project/cmumdz0uk01raad0dbetvfxew/traces).
-- Challenge ID: chưa có file giảng viên; không tự tạo challenge.
+- Challenge ID đã xác minh từ file: `day13-k4-l3a-monitoring-llmops-v1`, cohort K4. File được giữ nguyên và Git ignore.
 
 ## 2. Evidence thực tế
 
@@ -31,7 +31,7 @@
 [promote v2](evidence/13-production-v2.png), [rollback v1](evidence/14-rollback-v1.png).
 Đã bổ sung [dashboard PNG](evidence/11-dashboard-overview.png),
 [structured log](evidence/04-structured-log.png) và [PII runtime](evidence/05-pii-redaction.png).
-Chỉ evidence incident challenge chính thức còn chờ file giảng viên.
+Đã bổ sung evidence challenge chính thức tại mục 7: metric, log và trace cùng request.
 
 ## 3. Kết quả chạy local
 
@@ -185,7 +185,7 @@ ngân sách minh họa 0.2 request, tiêu thụ 10/0.2 = **50 lần** (5000%).
 Burst practice ngắn không chứng minh điều kiện tồn tại liên tục đủ 5/15 phút.
 Có ngưỡng bị vượt trên snapshot không đồng nghĩa hệ thống đã phát cảnh báo.
 
-## 7. Điều tra practice; challenge còn chờ
+## 7. Điều tra practice và challenge chính thức
 
 Khoảng dữ liệu UTC: 2026-09-29T06:41:06.932387+00:00 → 2026-09-29T07:41:06.932387+00:00.
 Triệu chứng: P95 tăng trong rag_slow, HTTP 500 trong tool_fail.
@@ -194,18 +194,76 @@ Ví dụ request chậm: `req-c046fd5c`, latency **2657 ms**;
 tool_fail ném RuntimeError. Đây là giải thích từ kịch bản/source, **chưa phải
 root cause được xác nhận bằng cloud trace**.
 
-Mitigation đã thực hiện: tắt từng scenario, chạy recovery 10 request thành công.
-Phòng ngừa thực tế: timeout retrieval, fallback, circuit breaker, load test;
-đây là đề xuất, chưa triển khai trong bài. Challenge chính thức và chuỗi
-metric → log → trace của challenge cần bổ sung sau khi nhận file.
+Mitigation practice đã thực hiện: tắt từng scenario và chạy recovery 10 request thành công.
+Kết quả practice bên trên được giữ riêng, không thay thế evidence challenge dưới đây.
 
-### CP3 đang chờ phát hành
+### CP3 — Challenge chính thức đã thực hiện
 
-Challenge ID **kỳ vọng theo đề**: `day13-k4-l3a-monitoring-llmops-v1`; chưa xác minh từ file.
-Chưa có metric/time range, correlation ID, trace ID hay root cause chính thức.
-Khi giảng viên mở challenge: đặt nguyên file tại `config/challenge.json`, xác minh đúng lớp/ID,
-chạy inject và workload theo hướng dẫn, sau đó bổ sung ba evidence cùng sự cố.
-Không dùng số liệu practice thay cho kết quả challenge và không tự tạo/sửa file.
+File giảng viên cung cấp được xác minh đúng `day13-k4-l3a-monitoring-llmops-v1`, cohort K4,
+đặt nguyên vẹn tại `config/challenge.json`, Git ignore và không đưa vào bài nộp.
+SHA-256 bản nhận và bản local giống nhau: `b11e6286f35cde0d744adc5edcb5e0a9cdffca865eb281b2c481219b2c86f6bf`.
+Không sửa seed/query/file; workload sử dụng thứ tự do `ordered_queries` của starter sinh.
+
+Chạy API thật qua TCP localhost:8000, Langfuse bật. Mỗi pha dùng cùng 5 query chính thức,
+`python scripts/load_test.py --challenge --concurrency 5`.
+Đo baseline khi mọi incident tắt; bật bằng `python scripts/inject_incident.py`;
+sau đo incident, tắt bằng `python scripts/inject_incident.py --disable` rồi đo recovery.
+Tất cả 15 request trả HTTP 200; đã đọc lại **15 traces / 45 observations** trên cloud.
+[Lệnh/output/health theo pha](evidence/19-challenge-phases.json), [tổng hợp metrics](evidence/20-challenge-summary.json),
+[observations cloud](evidence/20-challenge-cloud.json).
+Bản export evidence bỏ preview câu hỏi challenge và metadata SDK chứa key; các số liệu, ID, timestamp được giữ nguyên. File challenge và toàn bộ nội dung câu hỏi không đưa vào Git.
+
+| Pha | P50 ms | P95 ms | P99 ms | TTFT P95 ms | Vượt 2000 ms | Error / retrieval success |
+|---|---:|---:|---:|---:|---:|---|
+| baseline | 156.0 | 158.6 | 158.92 | 55.0 | 0/5 | 0.0% / 100.0% |
+| incident | 2662.0 | 2662.8 | 2662.96 | 53.6 | 5/5 | 0.0% / 100.0% |
+| recovery | 156.0 | 156.8 | 156.96 | 51.8 | 0/5 | 0.0% / 100.0% |
+
+**Khoảng thời gian UTC ngày 29/09/2026** (giờ Việt Nam = UTC + 7):
+
+- baseline: `2026-09-29T09:33:31.986802+00:00` → `2026-09-29T09:33:32.238654+00:00`.
+- incident: `2026-09-29T09:33:32.338156+00:00` → `2026-09-29T09:33:35.110527+00:00`.
+- recovery: `2026-09-29T09:33:35.192308+00:00` → `2026-09-29T09:33:35.427792+00:00`.
+
+**Metrics → Logs → Traces:** P95 latency của feature `monitoring` tăng từ 158.6 lên
+2662.8 ms, cả 5 request vượt ngưỡng challenge **2000 ms**. Error vẫn 0% và TTFT gần như
+không đổi, nên dấu hiệu là chậm xử lý trước generation, không phải request thất bại.
+Ngưỡng challenge 2000 ms khác SLO chung 3000 ms; không đổi SLO để hợp thức hóa kết quả.
+
+Chọn log `response_sent` lúc `2026-09-29T09:33:35.080273Z`:
+`correlation_id=req-2a4c3677`, `latency_ms=2663`, `ttft_ms=52`,
+`feature=monitoring`, `tool_name=retrieval`, `tool_success=true`.
+[Log incident nguyên giá trị](evidence/19-challenge-incident.jsonl).
+
+Trace tương ứng: `25307841dfaf9c40be34c13eaa3af02a` — metadata có đúng `req-2a4c3677`.
+Root `lab-agent-run` ID `aae55e423b006240` kéo dài **2663 ms**;
+child `retrieval` ID `c39e33d81a6f5cf8` kéo dài **2505 ms**;
+child `llm-generation` ID `6df1d2b0f88f05bf` kéo dài **158 ms**.
+Cả hai child cùng parent là root. Retrieval chiếm khoảng **94.1%** tổng thời gian;
+status DEFAULT và retrieval success=true cho thấy dependency chậm nhưng không lỗi.
+Generation liên kết `day13-chat` v1/production, 35 input + 117 output tokens,
+cost mô phỏng 0.00186 USD.
+
+**Root cause:** kịch bản `rag_slow` thêm `time.sleep(2.5)` vào đường xử lý retrieval
+trong [mock_rag.py](../app/mock_rag.py). Cơ chế này khớp span retrieval 2505 ms trên cloud
+và phần tăng latency khoảng 2.5 giây so với baseline; không quy lỗi cho LLM/prompt.
+
+**Fix action đã làm:** tắt incident theo CLI, giữ nguyên file challenge và chạy lại cùng
+workload/concurrency. Recovery có 5/5 HTTP 200, không request nào vượt 2000 ms,
+P95 giảm còn 156.8 ms. Trace recovery `470df34682e724c3416a6cd16cf375df` có retrieval 0 ms
+(độ phân giải timestamp), generation 157 ms và root 157 ms. `/health` cuối xác nhận
+rag_slow/tool_fail/cost_spike đều false.
+
+**Preventive measures đề xuất:** đặt timeout và latency budget cho retrieval; fallback/circuit breaker
+khi dependency chậm; quan sát percentile theo feature và từng span; chạy regression load test
+cùng workload trước release. Trong lab, các biện pháp này là đề xuất, chưa triển khai thay đổi
+hành vi starter. Ba alert tổng quát hiện tại chưa đủ điều kiện firing: P95 vẫn dưới 3000 ms,
+chỉ 5 request/pha và không có chuỗi dữ liệu đủ 5 phút. Có thể bổ sung cảnh báo retrieval riêng
+sau khi hiệu chỉnh ngưỡng với tải thật.
+
+![Incident metric](evidence/21-incident-metric.png)
+![Incident log](evidence/22-incident-log.png)
+![Incident trace cùng correlation ID](evidence/23-incident-trace.png)
 
 ## 8. Mục tiêu, ứng dụng và nội dung cần hiểu
 
@@ -229,7 +287,7 @@ Blocker: Python mặc định 3.14 không phù hợp dependency ghim; đã dùng
 Blocker thứ hai: API đọc trace cũ trả 410 với organization Langfuse mới.
 Cách xử lý là dùng Observations API v2 có from/to thời gian, nhóm observations theo traceId;
 đối chiếu đủ ba span và promptVersion thay vì coi việc export thành công là bằng chứng đã lưu cloud.
-Langfuse đã hoàn thành; challenge chính thức còn thiếu.
+Langfuse và challenge chính thức đã hoàn thành; ba evidence đã đối chiếu cùng correlation ID.
 
 ## 9. Tự đánh giá và bài học
 
@@ -257,7 +315,7 @@ che trên ảnh sau khi dữ liệu đã gửi đi không thay thế bảo vệ 
 
 ### Hạn chế còn lại và hướng cải thiện
 
-- Chưa có challenge chính thức nên chưa tự đánh giá hoàn thành CP3 hoặc điểm incident.
+- CP3 đã tái hiện và xác minh phục hồi; mẫu 5 request/pha chỉ chứng minh kịch bản lab, không đại diện tải production.
 - FakeLLM và heuristic quality chỉ phục vụ quan sát; muốn đánh giá sản phẩm cần dataset chuẩn và đánh giá đầu ra độc lập.
 - Regex PII chỉ bao phủ mẫu đã định nghĩa, có thể bỏ sót biến thể hoặc che nhầm chuỗi số/hash 12 chữ số; cần cơ chế theo loại field và kiểm thử rộng hơn trước khi dùng production.
 - Latency/TTFT dashboard hiện tổng hợp response thành công; error panel giữ số request lỗi. Muốn đo latency toàn bộ requests cần bổ sung thời gian ở nhánh lỗi.
@@ -265,7 +323,7 @@ che trên ảnh sau khi dữ liệu đã gửi đi không thay thế bảo vệ 
 - File JSONL và dashboard local phù hợp lab; hệ thống thật cần lưu trữ tập trung, retention, phân quyền, kiểm soát sampling và tải đồng thời.
 - SLO 28 ngày là mục tiêu được định nghĩa; workload ngắn chưa đủ để chứng minh tuân thủ dài hạn.
 
-### Đối chiếu rubric trước challenge
+### Đối chiếu rubric sau challenge
 
 | Hạng mục | Trạng thái tự đánh giá | Căn cứ |
 |---|---|---|
@@ -273,11 +331,11 @@ che trên ảnh sau khi dữ liệu đã gửi đi không thay thế bảo vệ 
 | B. PII | Đạt bốn nhóm mẫu đã kiểm tra | Runtime marker và tests; còn giới hạn regex |
 | C. Tracing/prompt | Đã hoàn thành | 14 traces/42 observations, v1/v2, promote/rollback |
 | D. Dashboard/SLO/alerts | Có sáu panel, SLO/budget, ba alert/runbook | PNG, JSON, YAML; chưa chạy alert engine |
-| E. Incident chính thức | Chưa thực hiện | Chờ challenge giảng viên |
+| E. Incident chính thức | Đã điều tra và xác minh phục hồi | Metric → req-2a4c3677 → trace 25307841…; retrieval 2505 ms |
 | F. Tái hiện/tích hợp | Tests hiện tại đạt; chờ commit cuối | 29 tests, lệnh chạy, secret scan |
 | G. Báo cáo/hiểu bài | Đã có phân tích và evidence phần hiện tại | Các mục 1–9; Q&A do học viên trình bày |
 
-Không tự nhận điểm chấm chính thức hoặc cộng bonus khi chưa hoàn thành challenge end-to-end.
+Không tự nhận điểm chấm chính thức hoặc cộng bonus; giảng viên đánh giá source, evidence và Q&A.
 
 ## 10. Evidence và việc còn lại
 
@@ -294,17 +352,18 @@ Không tự nhận điểm chấm chính thức hoặc cộng bonus khi chưa ho
 | Rollback | [14-rollback-v1.png](evidence/14-rollback-v1.png), [run IDs](evidence/12-prompt-runs.json) |
 | Dashboard runtime | [11-dashboard-overview.png](evidence/11-dashboard-overview.png), [HTML](evidence/11-dashboard.html), [JSON](evidence/11-dashboard.json) |
 | Secret/evidence audit | [18-evidence-audit.txt](evidence/18-evidence-audit.txt) |
-| Incident metric/log/trace | Chờ challenge chính thức |
+| Incident metric/log/trace | [Metric](evidence/21-incident-metric.png), [log](evidence/22-incident-log.png), [trace](evidence/23-incident-trace.png) |
 
 - [x] Tests, log validator và dashboard contract đạt trên working tree.
 - [x] Có practice runtime, structured logs, PII và dashboard PNG.
 - [x] Có ≥10 cloud traces, waterfall/metadata và managed prompt v1/v2, promote/rollback.
 - [x] Hoàn thiện bảng thông số, SLO/error budget, alerts, blocker và tự đánh giá.
-- [ ] Nhận file giảng viên, chạy challenge đúng lớp, bổ sung metric → log → trace.
-- [ ] Bản trước challenge: commit/push và nộp permalink SHA; trạng thái gửi LMS kiểm tra trực tiếp trên VLearn.
-- [ ] Sau challenge: bổ sung evidence rồi cập nhật commit và bài nộp mới.
+- [x] Nhận file giảng viên, chạy challenge đúng lớp, bổ sung metric → log → trace và recovery.
+- [x] Bản trước challenge đã commit/push `57f5d47`; chưa nộp VLearn theo yêu cầu học viên.
+- [x] Hoàn thiện bản challenge để commit/push theo yêu cầu học viên.
+- [ ] Nộp VLearn khi học viên yêu cầu riêng.
 
-## 11. Danh sách trace đã xác minh
+## 11. Danh sách trace đã xác minh trước challenge
 
 Dữ liệu đọc lại từ project cá nhân; source: `12-cloud-observations.json`.
 
