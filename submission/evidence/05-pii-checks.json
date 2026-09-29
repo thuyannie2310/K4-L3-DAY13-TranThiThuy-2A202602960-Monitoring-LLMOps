@@ -1,0 +1,38 @@
+{
+  "method": "Real /chat requests through FastAPI TestClient; local-only tracing disabled",
+  "checks": [
+    {
+      "kind": "email",
+      "input": "Synthetic fixture generated in memory; raw value omitted",
+      "expected_marker": "REDACTED_EMAIL",
+      "status": 200,
+      "correlation_id": "req-a1000000",
+      "response_header": "req-a1000000"
+    },
+    {
+      "kind": "phone",
+      "input": "Synthetic fixture generated in memory; raw value omitted",
+      "expected_marker": "REDACTED_PHONE_VN",
+      "status": 200,
+      "correlation_id": "req-a1000001",
+      "response_header": "req-a1000001"
+    },
+    {
+      "kind": "cccd",
+      "input": "Synthetic fixture generated in memory; raw value omitted",
+      "expected_marker": "REDACTED_CCCD",
+      "status": 200,
+      "correlation_id": "req-a1000002",
+      "response_header": "req-a1000002"
+    },
+    {
+      "kind": "card",
+      "input": "Synthetic fixture generated in memory; raw value omitted",
+      "expected_marker": "REDACTED_CREDIT_CARD",
+      "status": 200,
+      "correlation_id": "req-a1000003",
+      "response_header": "req-a1000003"
+    }
+  ],
+  "all_four_redacted": true
+}

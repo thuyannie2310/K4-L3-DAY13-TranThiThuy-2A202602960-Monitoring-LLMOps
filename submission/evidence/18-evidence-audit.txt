@@ -1,0 +1,10 @@
+Evidence audit — 2026-09-29
+Scope: current working tree; final submission commit not created pending official challenge.
+Report relative file links: checked.
+Submission text artifacts: no full Langfuse keys or selected raw synthetic PII fixtures found.
+.env and challenge.json: ignored and untracked.
+Runtime dashboard: 40 practice requests; 6 panels; correct error/retrieval thresholds.
+Cloud snapshot: 14 unique trace IDs.
+Screenshots: dashboard visually reviewed; traces/prompt screenshots from own project, not API Keys page.
+This targeted scan is not a guarantee of detecting every possible secret or PII pattern.
+Findings: NONE

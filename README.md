@@ -177,3 +177,11 @@ Không push bài làm trực tiếp lên repo đề bài và không dùng chung 
 - [RUBRIC.md](docs/RUBRIC.md), [RULES.md](docs/RULES.md), [SUBMISSION.md](docs/SUBMISSION.md): cách chấm, quy định và cách nộp.
 - [grading-evidence.md](docs/grading-evidence.md): checklist nhanh các ảnh/output cần thu thập.
 - [REPORT.md](submission/REPORT.md): báo cáo cá nhân duy nhất cần hoàn thiện.
+
+## Bản triển khai local trong repository này
+
+Xem [hướng dẫn chạy bằng tiếng Việt](docs/HUONG_DAN_CHAY.md) và
+[báo cáo kết quả thực tế](submission/REPORT.md). Tạo dashboard từ log bằng
+`python scripts/build_dashboard.py`, rồi mở `submission/evidence/11-dashboard.html`.
+Script `scripts/local_evidence.py` chạy bốn lượt practice qua ASGI app để kiểm tra
+baseline, chậm retrieval, lỗi retrieval và phục hồi; không chạy challenge chính thức.

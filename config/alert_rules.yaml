@@ -1,25 +1,28 @@
 alerts:
-  - name: TODO_alert_1
-    severity: TODO
-    condition: TODO
-    duration: TODO
+  - name: high_tail_latency
+    severity: warning
+    condition: 'p95(response_sent.latency_ms, 5m) > 3000 and count(request_received, 5m) >= 20'
+    duration: 5m
     type: symptom-based
     channel: slack
-    owner: TODO
+    slack_channel: '#llmops-alerts'
+    owner: TranThiThuy
     runbook: docs/alerts.md#alert-1
-  - name: TODO_alert_2
-    severity: TODO
-    condition: TODO
-    duration: TODO
+  - name: high_request_error_rate
+    severity: critical
+    condition: '100 * count(request_failed, 5m) / count(request_received, 5m) > 2 and count(request_received, 5m) >= 20'
+    duration: 5m
     type: symptom-based
     channel: slack
-    owner: TODO
+    slack_channel: '#llmops-alerts'
+    owner: TranThiThuy
     runbook: docs/alerts.md#alert-2
-  - name: TODO_alert_3
-    severity: TODO
-    condition: TODO
-    duration: TODO
+  - name: low_answer_quality
+    severity: warning
+    condition: 'mean(response_sent.quality_score, 15m) < 0.75 and count(response_sent, 15m) >= 20'
+    duration: 15m
     type: symptom-based
     channel: slack
-    owner: TODO
+    slack_channel: '#llmops-alerts'
+    owner: TranThiThuy
     runbook: docs/alerts.md#alert-3

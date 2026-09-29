@@ -7,7 +7,7 @@ primary_slo:
     total_event: 'event == "request_received"'
   target_percent: 99.5
   error_budget_percent: 0.5
-  note: Học viên phải giải thích hoặc điều chỉnh ngưỡng bằng baseline của mình.
+  note: Ngân sách lỗi = 0.005 * tổng request trong 28 ngày; 100000 request cho phép 500 request lỗi hoặc chậm hơn 3000 ms. Ngưỡng 3000 ms là mục tiêu lab, cần hiệu chỉnh bằng tải thực tế.
 guardrails:
   error_rate_pct_max: 2
   daily_cost_usd_max: 2.5

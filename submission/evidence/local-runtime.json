@@ -1,0 +1,414 @@
+{
+  "health": {
+    "ok": true,
+    "tracing_enabled": false,
+    "incidents": {
+      "rag_slow": false,
+      "tool_fail": false,
+      "cost_spike": false
+    }
+  },
+  "baseline": [
+    {
+      "status": 200,
+      "correlation_id": "req-e7a6ccff",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 156,
+      "ttft_ms": 51,
+      "tokens_in": 36,
+      "tokens_out": 98,
+      "cost_usd": 0.001578,
+      "quality_score": 0.9
+    },
+    {
+      "status": 200,
+      "correlation_id": "req-9cf9b5e8",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 157,
+      "ttft_ms": 54,
+      "tokens_in": 32,
+      "tokens_out": 175,
+      "cost_usd": 0.002721,
+      "quality_score": 0.8
+    },
+    {
+      "status": 200,
+      "correlation_id": "req-8e8cf3c8",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 155,
+      "ttft_ms": 53,
+      "tokens_in": 43,
+      "tokens_out": 142,
+      "cost_usd": 0.002259,
+      "quality_score": 0.8
+    },
+    {
+      "status": 200,
+      "correlation_id": "req-97a960b6",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 156,
+      "ttft_ms": 53,
+      "tokens_in": 39,
+      "tokens_out": 94,
+      "cost_usd": 0.001527,
+      "quality_score": 0.9
+    },
+    {
+      "status": 200,
+      "correlation_id": "req-73e22e4c",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 154,
+      "ttft_ms": 53,
+      "tokens_in": 33,
+      "tokens_out": 99,
+      "cost_usd": 0.001584,
+      "quality_score": 0.9
+    },
+    {
+      "status": 200,
+      "correlation_id": "req-63fff2c7",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 156,
+      "ttft_ms": 53,
+      "tokens_in": 35,
+      "tokens_out": 144,
+      "cost_usd": 0.002265,
+      "quality_score": 0.9
+    },
+    {
+      "status": 200,
+      "correlation_id": "req-67546d30",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 155,
+      "ttft_ms": 53,
+      "tokens_in": 29,
+      "tokens_out": 156,
+      "cost_usd": 0.002427,
+      "quality_score": 0.9
+    },
+    {
+      "status": 200,
+      "correlation_id": "req-42d67747",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 156,
+      "ttft_ms": 53,
+      "tokens_in": 27,
+      "tokens_out": 173,
+      "cost_usd": 0.002676,
+      "quality_score": 0.9
+    },
+    {
+      "status": 200,
+      "correlation_id": "req-f691ba6c",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 156,
+      "ttft_ms": 53,
+      "tokens_in": 36,
+      "tokens_out": 105,
+      "cost_usd": 0.001683,
+      "quality_score": 0.9
+    },
+    {
+      "status": 200,
+      "correlation_id": "req-42da12a2",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 155,
+      "ttft_ms": 53,
+      "tokens_in": 28,
+      "tokens_out": 175,
+      "cost_usd": 0.002709,
+      "quality_score": 0.9
+    }
+  ],
+  "rag_slow": [
+    {
+      "status": 200,
+      "correlation_id": "req-c046fd5c",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 2657,
+      "ttft_ms": 51,
+      "tokens_in": 36,
+      "tokens_out": 128,
+      "cost_usd": 0.002028,
+      "quality_score": 0.9
+    },
+    {
+      "status": 200,
+      "correlation_id": "req-60498f56",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 2659,
+      "ttft_ms": 51,
+      "tokens_in": 32,
+      "tokens_out": 118,
+      "cost_usd": 0.001866,
+      "quality_score": 0.8
+    },
+    {
+      "status": 200,
+      "correlation_id": "req-9df39d04",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 2663,
+      "ttft_ms": 55,
+      "tokens_in": 43,
+      "tokens_out": 109,
+      "cost_usd": 0.001764,
+      "quality_score": 0.8
+    },
+    {
+      "status": 200,
+      "correlation_id": "req-b5f95963",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 2657,
+      "ttft_ms": 51,
+      "tokens_in": 39,
+      "tokens_out": 107,
+      "cost_usd": 0.001722,
+      "quality_score": 0.9
+    },
+    {
+      "status": 200,
+      "correlation_id": "req-34fb2e38",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 2661,
+      "ttft_ms": 51,
+      "tokens_in": 33,
+      "tokens_out": 119,
+      "cost_usd": 0.001884,
+      "quality_score": 0.9
+    },
+    {
+      "status": 200,
+      "correlation_id": "req-4bbb7716",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 2660,
+      "ttft_ms": 51,
+      "tokens_in": 35,
+      "tokens_out": 168,
+      "cost_usd": 0.002625,
+      "quality_score": 0.9
+    },
+    {
+      "status": 200,
+      "correlation_id": "req-6fe1fb3a",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 2659,
+      "ttft_ms": 51,
+      "tokens_in": 29,
+      "tokens_out": 87,
+      "cost_usd": 0.001392,
+      "quality_score": 0.9
+    },
+    {
+      "status": 200,
+      "correlation_id": "req-5d0efd03",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 2661,
+      "ttft_ms": 51,
+      "tokens_in": 27,
+      "tokens_out": 113,
+      "cost_usd": 0.001776,
+      "quality_score": 0.9
+    },
+    {
+      "status": 200,
+      "correlation_id": "req-a96bd3e2",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 2658,
+      "ttft_ms": 51,
+      "tokens_in": 36,
+      "tokens_out": 144,
+      "cost_usd": 0.002268,
+      "quality_score": 0.9
+    },
+    {
+      "status": 200,
+      "correlation_id": "req-10c8cf94",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 2660,
+      "ttft_ms": 51,
+      "tokens_in": 28,
+      "tokens_out": 164,
+      "cost_usd": 0.002544,
+      "quality_score": 0.9
+    }
+  ],
+  "tool_fail": [
+    {
+      "status": 500,
+      "correlation_id": "req-9926ca97",
+      "detail": "RuntimeError"
+    },
+    {
+      "status": 500,
+      "correlation_id": "req-d583a66e",
+      "detail": "RuntimeError"
+    },
+    {
+      "status": 500,
+      "correlation_id": "req-ed24804b",
+      "detail": "RuntimeError"
+    },
+    {
+      "status": 500,
+      "correlation_id": "req-431e5a56",
+      "detail": "RuntimeError"
+    },
+    {
+      "status": 500,
+      "correlation_id": "req-1857ade1",
+      "detail": "RuntimeError"
+    },
+    {
+      "status": 500,
+      "correlation_id": "req-d1cb4d56",
+      "detail": "RuntimeError"
+    },
+    {
+      "status": 500,
+      "correlation_id": "req-63bbba68",
+      "detail": "RuntimeError"
+    },
+    {
+      "status": 500,
+      "correlation_id": "req-519efa4e",
+      "detail": "RuntimeError"
+    },
+    {
+      "status": 500,
+      "correlation_id": "req-4ea1373e",
+      "detail": "RuntimeError"
+    },
+    {
+      "status": 500,
+      "correlation_id": "req-2a400870",
+      "detail": "RuntimeError"
+    }
+  ],
+  "recovery": [
+    {
+      "status": 200,
+      "correlation_id": "req-afb8d3ae",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 159,
+      "ttft_ms": 53,
+      "tokens_in": 36,
+      "tokens_out": 120,
+      "cost_usd": 0.001908,
+      "quality_score": 0.9
+    },
+    {
+      "status": 200,
+      "correlation_id": "req-236df13e",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 158,
+      "ttft_ms": 53,
+      "tokens_in": 32,
+      "tokens_out": 159,
+      "cost_usd": 0.002481,
+      "quality_score": 0.8
+    },
+    {
+      "status": 200,
+      "correlation_id": "req-5822fd54",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 158,
+      "ttft_ms": 53,
+      "tokens_in": 43,
+      "tokens_out": 109,
+      "cost_usd": 0.001764,
+      "quality_score": 0.8
+    },
+    {
+      "status": 200,
+      "correlation_id": "req-e0e4f079",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 158,
+      "ttft_ms": 51,
+      "tokens_in": 39,
+      "tokens_out": 120,
+      "cost_usd": 0.001917,
+      "quality_score": 0.9
+    },
+    {
+      "status": 200,
+      "correlation_id": "req-415e36c9",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 159,
+      "ttft_ms": 51,
+      "tokens_in": 33,
+      "tokens_out": 149,
+      "cost_usd": 0.002334,
+      "quality_score": 0.9
+    },
+    {
+      "status": 200,
+      "correlation_id": "req-4d77e803",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 160,
+      "ttft_ms": 53,
+      "tokens_in": 35,
+      "tokens_out": 92,
+      "cost_usd": 0.001485,
+      "quality_score": 0.9
+    },
+    {
+      "status": 200,
+      "correlation_id": "req-4549d01e",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 159,
+      "ttft_ms": 53,
+      "tokens_in": 29,
+      "tokens_out": 178,
+      "cost_usd": 0.002757,
+      "quality_score": 0.9
+    },
+    {
+      "status": 200,
+      "correlation_id": "req-85e27a07",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 162,
+      "ttft_ms": 55,
+      "tokens_in": 27,
+      "tokens_out": 102,
+      "cost_usd": 0.001611,
+      "quality_score": 0.9
+    },
+    {
+      "status": 200,
+      "correlation_id": "req-45ffb557",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 158,
+      "ttft_ms": 51,
+      "tokens_in": 36,
+      "tokens_out": 148,
+      "cost_usd": 0.002328,
+      "quality_score": 0.9
+    },
+    {
+      "status": 200,
+      "correlation_id": "req-ac0aa7e8",
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "latency_ms": 158,
+      "ttft_ms": 51,
+      "tokens_in": 28,
+      "tokens_out": 125,
+      "cost_usd": 0.001959,
+      "quality_score": 0.9
+    }
+  ],
+  "metrics": {
+    "traffic": 30,
+    "latency_p50": 159.0,
+    "latency_p95": 2661.0,
+    "latency_p99": 2663.0,
+    "ttft_p95": 55.0,
+    "avg_cost_usd": 0.0021,
+    "total_cost_usd": 0.0618,
+    "tokens_in_total": 1014,
+    "tokens_out_total": 3920,
+    "error_breakdown": {
+      "RuntimeError": 10
+    },
+    "quality_avg": 0.88
+  }
+}

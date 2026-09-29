@@ -1,0 +1,70 @@
+[
+  {
+    "phase": "baseline",
+    "label": "baseline",
+    "version": 1,
+    "session_id": "langfuse-baseline-20260929",
+    "response": {
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "correlation_id": "req-9c149815",
+      "latency_ms": 968,
+      "ttft_ms": 54,
+      "tokens_in": 34,
+      "tokens_out": 158,
+      "cost_usd": 0.002472,
+      "quality_score": 0.8
+    },
+    "trace_id": "1b8124121ed748b4a1f4ed4d54f11564"
+  },
+  {
+    "phase": "candidate",
+    "label": "candidate",
+    "version": 2,
+    "session_id": "langfuse-candidate-20260929",
+    "response": {
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "correlation_id": "req-ed52ce3d",
+      "latency_ms": 868,
+      "ttft_ms": 54,
+      "tokens_in": 45,
+      "tokens_out": 149,
+      "cost_usd": 0.00237,
+      "quality_score": 0.8
+    },
+    "trace_id": "6ff602cd9e7e26b159fb00862f64034c"
+  },
+  {
+    "phase": "promoted",
+    "label": "production",
+    "version": 2,
+    "session_id": "langfuse-promoted-20260929",
+    "response": {
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "correlation_id": "req-e4026b00",
+      "latency_ms": 1662,
+      "ttft_ms": 51,
+      "tokens_in": 45,
+      "tokens_out": 144,
+      "cost_usd": 0.002295,
+      "quality_score": 0.8
+    },
+    "trace_id": "14ed0c6ac9676352e7333c94b14098ab"
+  },
+  {
+    "phase": "rollback",
+    "label": "production",
+    "version": 1,
+    "session_id": "langfuse-rollback-20260929",
+    "response": {
+      "answer": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "correlation_id": "req-7cef16d1",
+      "latency_ms": 151,
+      "ttft_ms": 50,
+      "tokens_in": 34,
+      "tokens_out": 98,
+      "cost_usd": 0.001572,
+      "quality_score": 0.8
+    },
+    "trace_id": "7e9e3367c158ab7ff78fe1616a4c838a"
+  }
+]

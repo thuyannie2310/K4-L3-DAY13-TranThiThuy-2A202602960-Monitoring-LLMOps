@@ -1,0 +1,1 @@
+Error: data/logs.jsonl not found. Run the app and send some requests first.

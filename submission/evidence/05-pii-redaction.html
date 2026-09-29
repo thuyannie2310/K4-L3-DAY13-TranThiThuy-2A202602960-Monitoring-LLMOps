@@ -1,0 +1,57 @@
+<!doctype html><meta charset="utf-8"><style>body{font:15px system-ui;padding:24px;background:#101827;color:#e4edf9}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#1c2940;padding:18px;font:13px/1.6 monospace;border-radius:8px}h1{font-size:24px}p{color:#b4c6dd}</style><h1>PII redaction · four synthetic input types</h1><p>Tran Thi Thuy · 2A202602960<br>Source: submission/evidence/05-pii-runtime.jsonl<br>Actual /chat calls through FastAPI TestClient. Raw synthetic inputs omitted; log values below are unchanged.</p><pre>{
+  &quot;service&quot;: &quot;api&quot;,
+  &quot;payload&quot;: {
+    &quot;message_preview&quot;: &quot;Test email: [REDACTED_EMAIL]&quot;
+  },
+  &quot;event&quot;: &quot;request_received&quot;,
+  &quot;correlation_id&quot;: &quot;req-a1000000&quot;,
+  &quot;feature&quot;: &quot;qa&quot;,
+  &quot;model&quot;: &quot;claude-sonnet-4-5&quot;,
+  &quot;user_id_hash&quot;: &quot;3f87bd50d646&quot;,
+  &quot;env&quot;: &quot;dev&quot;,
+  &quot;session_id&quot;: &quot;pii-email&quot;,
+  &quot;level&quot;: &quot;info&quot;,
+  &quot;ts&quot;: &quot;2026-09-29T08:25:43.095671Z&quot;
+}</pre><pre>{
+  &quot;service&quot;: &quot;api&quot;,
+  &quot;payload&quot;: {
+    &quot;message_preview&quot;: &quot;Test phone: [REDACTED_PHONE_VN]&quot;
+  },
+  &quot;event&quot;: &quot;request_received&quot;,
+  &quot;correlation_id&quot;: &quot;req-a1000001&quot;,
+  &quot;feature&quot;: &quot;qa&quot;,
+  &quot;model&quot;: &quot;claude-sonnet-4-5&quot;,
+  &quot;user_id_hash&quot;: &quot;3f87bd50d646&quot;,
+  &quot;env&quot;: &quot;dev&quot;,
+  &quot;session_id&quot;: &quot;pii-phone&quot;,
+  &quot;level&quot;: &quot;info&quot;,
+  &quot;ts&quot;: &quot;2026-09-29T08:25:43.259040Z&quot;
+}</pre><pre>{
+  &quot;service&quot;: &quot;api&quot;,
+  &quot;payload&quot;: {
+    &quot;message_preview&quot;: &quot;Test cccd: [REDACTED_CCCD]&quot;
+  },
+  &quot;event&quot;: &quot;request_received&quot;,
+  &quot;correlation_id&quot;: &quot;req-a1000002&quot;,
+  &quot;feature&quot;: &quot;qa&quot;,
+  &quot;model&quot;: &quot;claude-sonnet-4-5&quot;,
+  &quot;user_id_hash&quot;: &quot;3f87bd50d646&quot;,
+  &quot;env&quot;: &quot;dev&quot;,
+  &quot;session_id&quot;: &quot;pii-cccd&quot;,
+  &quot;level&quot;: &quot;info&quot;,
+  &quot;ts&quot;: &quot;2026-09-29T08:25:43.425568Z&quot;
+}</pre><pre>{
+  &quot;service&quot;: &quot;api&quot;,
+  &quot;payload&quot;: {
+    &quot;message_preview&quot;: &quot;Test card: [REDACTED_CREDIT_CARD]&quot;
+  },
+  &quot;event&quot;: &quot;request_received&quot;,
+  &quot;correlation_id&quot;: &quot;req-a1000003&quot;,
+  &quot;feature&quot;: &quot;qa&quot;,
+  &quot;model&quot;: &quot;claude-sonnet-4-5&quot;,
+  &quot;user_id_hash&quot;: &quot;3f87bd50d646&quot;,
+  &quot;env&quot;: &quot;dev&quot;,
+  &quot;session_id&quot;: &quot;pii-card&quot;,
+  &quot;level&quot;: &quot;info&quot;,
+  &quot;ts&quot;: &quot;2026-09-29T08:25:43.585949Z&quot;
+}</pre>

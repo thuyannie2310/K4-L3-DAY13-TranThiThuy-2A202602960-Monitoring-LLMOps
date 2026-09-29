@@ -12,7 +12,7 @@ from .incidents import disable, enable, status
 from .logging_config import configure_logging, get_logger
 from .metrics import record_error, snapshot
 from .middleware import CorrelationIdMiddleware
-from .pii import hash_user_id, summarize_text
+from .pii import hash_user_id, summarize_text, scrub_text
 from .schemas import ChatRequest, ChatResponse
 from .tracing import tracing_enabled
 
@@ -47,9 +47,10 @@ async def metrics() -> dict:
 
 
 @app.post("/chat", response_model=ChatResponse)
-async def chat(request: Request, body: ChatRequest) -> ChatResponse:
-    # TODO: Enrich logs with request context (user_id_hash, session_id, feature, model, env)
-    # bind_contextvars(...)
+def chat(request: Request, body: ChatRequest) -> ChatResponse:
+    bind_contextvars(user_id_hash=hash_user_id(body.user_id),
+                     session_id=scrub_text(body.session_id), feature=scrub_text(body.feature),
+                     model=agent.model, env=os.getenv("APP_ENV", "dev"))
     
     log.info(
         "request_received",

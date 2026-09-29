@@ -1,0 +1,7 @@
+2026-09-29: SDK auth_check=True; GET /health ok=true tracing_enabled=true
+HTTP sample workload: 10/10 status 200
+pytest: 27 passed
+Log validator: 100/100, missing fields=0, missing enrichment=0, PII leaks=0
+Dashboard validator: 6/6
+Cloud: 14 traces / 42 observations, verified via Observations API v2
+Prompt phases: baseline v1, candidate v2, promoted production v2, rollback production v1
